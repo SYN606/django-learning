@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  SYN606 | My Learning Hub
+{% endblock %}
+{% block messages %}{% endblock messages %}
+
+{% block body_content %}
+  <header class="text-center py-16 bg-[var(--color-bgcolor)] text-[var(--color-textcol)] border-b border-[rgba(255,255,255,0.1)] shadow-md">
+    <h1 class="text-4xl font-extrabold mb-3 text-[var(--color-accent)] drop-shadow-[0_0_10px_rgba(164,185,255,0.2)]">Welcome to <span class="text-[var(--color-highlight-text)]">My Learning Hub</span></h1>
+    <p class="text-lg mb-8 text-[var(--color-secondry-color)] opacity-90">Learn. Code. Build. — Your guide to mastering web development.</p>
+
+    <nav class="flex justify-center space-x-6 text-[var(--color-textcol)] text-sm md:text-base">
+      <a href="#about" class="hover:text-[var(--color-accent)] transition">About</a>
+      <a href="#features" class="hover:text-[var(--color-accent)] transition">Explore</a>
+      <a href="#tips" class="hover:text-[var(--color-accent)] transition">Tips</a>
+      <a href="#contact" class="hover:text-[var(--color-accent)] transition">Contact</a>
+    </nav>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-6 py-12 space-y-16 bg-[var(--color-bgcolor)] text-[var(--color-textcol)]">
+    <!-- About Section -->
+    <section id="about" class="p-8 rounded-xl glassy shadow-md">
+      <h2 class="text-3xl font-bold text-center text-[var(--color-accent)] mb-6">About This Website</h2>
+      <p class="text-[var(--color-textcol)]/90 mb-4 leading-relaxed">
+        <strong class="text-[var(--color-secondry-color)]">My Learning Hub</strong> is your starting point for mastering web technologies. From front-end to full-stack, we provide a structured path to learning through practical examples, projects, and real-world coding exercises.
+      </p>
+      <p class="text-[var(--color-textcol)]/90">Our mission is simple — make programming accessible, engaging, and project-focused for everyone.</p>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="text-center">
+      <h2 class="text-3xl font-bold text-[var(--color-accent)] mb-8">Explore the Learning Hub</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="glassy p-6 rounded-xl shadow-md hover:scale-[1.02] hover:shadow-lg transition transform">
+          <h3 class="text-xl font-semibold mb-3 text-[var(--color-highlight-text)]">🌐 Web Development Basics</h3>
+          <p class="text-[var(--color-textcol)]/80 mb-5">Understand the building blocks of the web — HTML, CSS, and JavaScript. Build your first website from scratch and learn modern best practices.</p>
+          <a href="#" class="inline-block bg-[var(--color-secondry-color)] text-[#111] px-5 py-2 rounded-lg font-semibold hover:bg-[#a9d8a2] transition">Start Learning</a>
+        </div>
+
+        <div class="glassy p-6 rounded-xl shadow-md hover:scale-[1.02] hover:shadow-lg transition transform">
+          <h3 class="text-xl font-semibold mb-3 text-[var(--color-highlight-text)]">💡 Learning Paths</h3>
+          <p class="text-[var(--color-textcol)]/80 mb-5">Follow curated learning paths designed for all levels. Each path includes tutorials, interactive examples, and exercises.</p>
+          <a href="#" class="inline-block bg-[var(--color-secondry-color)] text-[#111] px-5 py-2 rounded-lg font-semibold hover:bg-[#a9d8a2] transition">View Paths</a>
+        </div>
+
+        <div class="glassy p-6 rounded-xl shadow-md hover:scale-[1.02] hover:shadow-lg transition transform">
+          <h3 class="text-xl font-semibold mb-3 text-[var(--color-highlight-text)]">⚙️ Practice Projects</h3>
+          <p class="text-[var(--color-textcol)]/80 mb-5">Apply your knowledge through hands-on projects — from small utilities to complete applications. Build your portfolio as you learn!</p>
+          <a href="#" class="inline-block bg-[var(--color-secondry-color)] text-[#111] px-5 py-2 rounded-lg font-semibold hover:bg-[#a9d8a2] transition">Explore Projects</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section id="tips" class="glassy p-8 rounded-xl shadow-md">
+      <h2 class="text-3xl font-bold text-center text-[var(--color-accent)] mb-6">Quick Tips for Beginners</h2>
+      <ul class="list-disc list-inside space-y-2 text-[var(--color-textcol)]/90 marker:text-[var(--color-accent)]">
+        <li>
+          Start with <strong>HTML</strong> and <strong>CSS</strong> before JavaScript.
+        </li>
+        <li>Build mini-projects to apply your learning.</li>
+        <li>Use free resources and open-source projects to practice.</li>
+        <li>Break things, debug them — that’s how real learning happens!</li>
+      </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="text-center p-8 rounded-xl glassy shadow-md">
+      <h2 class="text-3xl font-bold text-[var(--color-accent)] mb-4">Stay Connected</h2>
+      <p class="text-[var(--color-textcol)]/85 mb-6">Have questions or want updates? Reach out or subscribe to get new learning content straight to your inbox.</p>
+      <div class="cta">
+        <a href="#" class="inline-block bg-[var(--color-accent)] text-[#111] px-6 py-3 rounded-lg font-semibold hover:bg-[var(--color-secondry-color)] hover:scale-[1.05] transition-all duration-300">Contact Us</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="text-center py-6 border-t border-[rgba(255,255,255,0.1)] text-[var(--color-textcol)]/70">
+    &copy; 2025 <strong class="text-[var(--color-secondry-color)]">My Learning Hub</strong>. All rights reserved.
+  </footer>
+{% endblock %}

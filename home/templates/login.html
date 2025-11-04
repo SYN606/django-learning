@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Login | SYN606
+{% endblock %}
+
+{% block body_content %}
+  <div class="flex items-center justify-center min-h-screen bg-[var(--color-bgcolor)]">
+    <div class="w-full max-w-md glassy rounded-2xl shadow-2xl p-8 border border-[rgba(255,255,255,0.1)]">
+      <h1 class="text-3xl font-extrabold text-center mb-6 text-[var(--color-accent)] drop-shadow-[0_0_10px_rgba(164,185,255,0.2)]">Welcome Back</h1>
+
+      <form action="{% url 'login' %}" method="POST" class="space-y-6">
+        {% csrf_token %}
+        <div>
+          <label for="useraname" class="block text-sm font-medium mb-1 text-[var(--color-highlight-text)]">Username</label>
+          <input type="text" id="useraname" name="useraname" required class="w-full px-4 py-2 rounded-lg bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)] outline-none text-[var(--color-textcol)] placeholder-gray-400" placeholder="Enter your Username" />
+        </div>
+
+        <div>
+          <label for="password" class="block text-sm font-medium mb-1 text-[var(--color-highlight-text)]">Password</label>
+          <input type="password" id="password" name="password" required class="w-full px-4 py-2 rounded-lg bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)] outline-none text-[var(--color-textcol)] placeholder-gray-400" placeholder="Enter your password" />
+        </div>
+
+        <div class="flex items-center justify-between text-sm text-[var(--color-textcol)]/80">
+          <label class="flex items-center cursor-pointer"><input type="checkbox" class="mr-2 accent-[var(--color-accent)]" />Remember me</label>
+          <a href="#" class="text-[var(--color-secondry-color)] hover:underline transition">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="w-full py-2 mt-4 font-semibold rounded-lg bg-[var(--color-accent)] text-[#111] hover:bg-[var(--color-secondry-color)] hover:scale-[1.02] transition-all duration-300 shadow-lg">Login</button>
+      </form>
+
+      <p class="text-sm text-center mt-6 text-[var(--color-textcol)]/70">
+        Don’t have an account?
+        <a href="{% url 'register' %}" class="text-[var(--color-highlight-text)] hover:underline transition">Sign up</a>
+      </p>
+    </div>
+  </div>
+{% endblock %}

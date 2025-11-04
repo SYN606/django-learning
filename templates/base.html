@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% block title %}
+
+      {% endblock %}
+    </title>
+
+    <style>
+      :root {
+        --color-bgcolor: #0d0d0d;
+        --color-accent: #a4b9ff;
+        --color-textcol: #f2f2f2;
+        --color-highlight-text: #ffc2e2;
+        --color-secondry-color: #b6e3b0;
+      }
+      
+      body {
+        background-color: var(--color-bgcolor);
+        color: var(--color-textcol);
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+      }
+      
+      .glassy {
+        background-color: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+    </style>
+
+    {% block css %}
+
+    {% endblock %}
+
+    <!-- ✅ Load Tailwind -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    {% load static %}
+
+    <!-- ✅ Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicon_io/apple-touch-icon.png' %}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon_io/favicon-32x32.png' %}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon_io/favicon-16x16.png' %}" />
+    <link rel="manifest" href="{% static 'img/favicon_io/site.webmanifest' %}" />
+  </head>
+
+  <body>
+    {% block navbar %}
+      {% include 'navbar.html' %}
+    {% endblock %}
+
+    {% block messages %}
+      {% if messages %}
+        <div class="fixed top-5 right-5 space-y-2 z-50">
+          {% for message in messages %}
+            <div class="flex items-center justify-between px-4 py-3 rounded-lg shadow-lg text-sm
+                    {% if message.tags == 'success' %}
+                
+                      bg-green-500/20 border border-green-400 text-green-200
+
+              {% elif message.tags == 'error' %}
+                
+                      bg-red-500/20 border border-red-400 text-red-200
+
+              {% elif message.tags == 'warning' %}
+                
+                      bg-yellow-500/20 border border-yellow-400 text-yellow-200
+
+              {% else %}
+                
+                      bg-[var(--color-accent)]/20 border border-[var(--color-accent)] text-[var(--color-highlight-text)]
+
+              {% endif %}
+                    transition-all duration-300"
+              id="msg-{{ forloop.counter }}">
+              <span>{{ message }}</span>
+              <button class="ml-3 text-xl leading-none hover:opacity-70" onclick="this.parentElement.remove()">×</button>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endblock %}
+
+    {% block body_content %}
+
+    {% endblock %}
+  </body>
+</html>

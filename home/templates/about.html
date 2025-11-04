@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  About SYN606
+{% endblock %}
+
+{% block body_content %}
+  <section class="min-h-screen px-6 py-12 bg-[var(--color-bgcolor)] text-[var(--color-textcol)]">
+    <div class="max-w-5xl mx-auto">
+      <!-- Header -->
+      <header class="text-center mb-12">
+        <h1 class="text-4xl font-extrabold mb-3 drop-shadow-[0_0_10px_rgba(164,185,255,0.3)] text-[var(--color-accent)]">About SYN606</h1>
+        <p class="text-lg font-medium tracking-wide text-[var(--color-highlight-text)]">Hacking | Cybersecurity | Innovation</p>
+      </header>
+
+      <!-- Body -->
+      <article class="space-y-6 leading-relaxed text-[var(--color-textcol)]/90">
+        <p>
+          Welcome to <strong class="text-[var(--color-secondry-color)]">SYN606</strong> — a digital space dedicated to cybersecurity, ethical hacking, and creative exploration. Our mission is to make complex technology concepts simple, hands-on, and engaging for learners across all levels.
+        </p>
+
+        <p>
+          We focus on bridging the gap between
+          <span class="text-[var(--color-highlight-text)] font-semibold">offensive security</span> and
+          <span class="text-[var(--color-highlight-text)] font-semibold">defensive understanding</span> — helping students not only identify vulnerabilities but also learn to secure systems and networks effectively.
+        </p>
+
+        <!-- Topics Section -->
+        <h2 class="text-2xl font-semibold mt-10 text-[var(--color-accent)]">What We Explore</h2>
+        <ul class="list-disc list-inside space-y-2 ml-4 marker:text-[var(--color-accent)]">
+          <li>
+            <span class="text-[var(--color-highlight-text)] font-semibold">Web Development:</span>
+            Learn the structure, logic, and security of modern web applications.
+          </li>
+          <li>
+            <span class="text-[var(--color-highlight-text)] font-semibold">Network Security:</span>
+            Explore packets, protocols, and real-world attack vectors.
+          </li>
+          <li>
+            <span class="text-[var(--color-highlight-text)] font-semibold">Penetration Testing:</span>
+            Discover vulnerabilities and exploit techniques — ethically.
+          </li>
+          <li>
+            <span class="text-[var(--color-highlight-text)] font-semibold">Linux & Automation:</span>
+            Build scripts, tools, and secure infrastructures from the ground up.
+          </li>
+        </ul>
+
+        <p>
+          At SYN606, we believe that true cybersecurity knowledge comes through experimentation. By combining <span class="text-[var(--color-secondry-color)] font-semibold">practical labs</span>,
+          <span class="text-[var(--color-secondry-color)] font-semibold">real-world tools</span>, and
+          <span class="text-[var(--color-secondry-color)] font-semibold">open learning</span>, we help aspiring hackers grow into cybersecurity professionals.
+        </p>
+
+        <!-- Highlight Quote -->
+        <div class="border-l-4 pl-4 italic mt-10 border-[var(--color-accent)] text-[var(--color-textcol)]/70">“Hack ethically. Learn endlessly. Build fearlessly.”</div>
+
+        <!-- Back Button -->
+        <div class="mt-10 text-center">
+          <a href="{% url 'homepage' %}" class="inline-block font-semibold px-6 py-3 rounded-xl transition-all duration-200 transform hover:scale-105 text-[#111] bg-[var(--color-secondry-color)] hover:bg-[#a9d8a2]">← Back to Home</a>
+        </div>
+      </article>
+    </div>
+  </section>
+{% endblock %}

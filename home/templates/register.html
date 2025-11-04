@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Register | SYN606
+{% endblock %}
+
+{% block body_content %}
+  <div class="flex items-center justify-center min-h-screen bg-[var(--color-bgcolor)]">
+    <div class="w-full max-w-md glassy rounded-2xl shadow-2xl p-8 border border-[rgba(255,255,255,0.1)]">
+      <h1 class="text-3xl font-extrabold text-center mb-6 text-[var(--color-accent)] drop-shadow-[0_0_10px_rgba(164,185,255,0.2)]">
+        Create Account
+      </h1>
+
+      <form action="{% url 'register' %}" method="POST" class="space-y-6">
+        {% csrf_token %}
+
+
+        <!-- username -->
+        <div>
+          <label for="username" class="block text-sm font-medium mb-1 text-[var(--color-highlight-text)]">
+            User Name
+          </label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            required
+            class="w-full px-4 py-2 rounded-lg bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)]
+                   focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]
+                   outline-none text-[var(--color-textcol)] placeholder-gray-400"
+            placeholder="Enter your username"
+          />
+        </div>
+
+        <!-- Full Name -->
+        <div>
+          <label for="name" class="block text-sm font-medium mb-1 text-[var(--color-highlight-text)]">
+            Full Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            class="w-full px-4 py-2 rounded-lg bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)]
+                   focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]
+                   outline-none text-[var(--color-textcol)] placeholder-gray-400"
+            placeholder="Enter your full name"
+          />
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label for="email" class="block text-sm font-medium mb-1 text-[var(--color-highlight-text)]">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            class="w-full px-4 py-2 rounded-lg bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)]
+                   focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]
+                   outline-none text-[var(--color-textcol)] placeholder-gray-400"
+            placeholder="Enter your email address"
+          />
+        </div>
+
+        <!-- Password -->
+        <div>
+          <label for="password" class="block text-sm font-medium mb-1 text-[var(--color-highlight-text)]">
+            Password
+          </label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            class="w-full px-4 py-2 rounded-lg bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)]
+                   focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]
+                   outline-none text-[var(--color-textcol)] placeholder-gray-400"
+            placeholder="Enter your password"
+          />
+        </div>
+
+        <!-- Phone -->
+        <div>
+          <label for="phone" class="block text-sm font-medium mb-1 text-[var(--color-highlight-text)]">
+            Phone Number
+          </label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            pattern="[0-9]{10}"
+            required
+            class="w-full px-4 py-2 rounded-lg bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)]
+                   focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--color-accent)]
+                   outline-none text-[var(--color-textcol)] placeholder-gray-400"
+            placeholder="e.g. 9876543210"
+          />
+        </div>
+
+        <!-- Submit -->
+        <button
+          type="submit"
+          class="w-full py-2 mt-4 font-semibold rounded-lg bg-[var(--color-accent)] text-[#111]
+                 hover:bg-[var(--color-secondry-color)] hover:scale-[1.02]
+                 transition-all duration-300 shadow-lg">
+          Register
+        </button>
+      </form>
+
+      <p class="text-sm text-center mt-6 text-[var(--color-textcol)]/70">
+        Already have an account?
+        <a href="{% url 'login' %}" class="text-[var(--color-highlight-text)] hover:underline transition">
+          Login
+        </a>
+      </p>
+    </div>
+  </div>
+{% endblock %}
