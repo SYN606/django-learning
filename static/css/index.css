@@ -1,0 +1,42 @@
+/* ---------------- HERO SECTION ---------------- */
+.hero-section {
+    height: 80vh;
+}
+
+/* Accent color (subtle red) */
+.accent {
+    color: #e50914;
+}
+
+/* Primary CTA button */
+.hero-btn-main {
+    background-color: #e50914;
+    border: none;
+    transition: 0.2s ease;
+}
+
+.hero-btn-main:hover {
+    background-color: #ff1a25;
+    transform: translateY(-2px);
+}
+
+/* Secondary CTA */
+.hero-btn-secondary {
+    border-color: #666 !important;
+    color: #ccc !important;
+    transition: 0.2s ease;
+}
+
+.hero-btn-secondary:hover {
+    border-color: #e50914 !important;
+    color: #e50914 !important;
+    transform: translateY(-2px);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .hero-section {
+        height: auto;
+        padding: 80px 0;
+    }
+}

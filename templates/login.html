@@ -1,79 +1,33 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}<link href="{% static 'css/login.css' %}" rel="stylesheet" />{% endblock css %}
+
 
 {% block content %}
+  <div class="container login-wrapper">
+    <div class="login-card">
+      <h2 class="login-title">🔐 Login</h2>
 
-<style>
-    .login-card {
-        background: #0d1117;
-        border: 1px solid #00eaff;
-        border-radius: 10px;
-        padding: 30px;
-        box-shadow: 0 0 20px rgba(0, 234, 255, 0.2);
-    }
+      <form method="POST">
+        {% csrf_token %}
 
-    .form-control {
-        background: #0a0f14;
-        border: 1px solid #00eaff;
-        color: #d1f7ff;
-    }
-
-    .form-control:focus {
-        border-color: #00eaff;
-        box-shadow: 0 0 10px #00eaff;
-        background-color: #0a0f14;
-        color: #d1f7ff;
-    }
-
-    .btn-cyber {
-        border: 1px solid #00eaff;
-        color: #00eaff;
-    }
-
-    .btn-cyber:hover {
-        background: #00eaff;
-        color: #000;
-        font-weight: bold;
-        box-shadow: 0 0 10px #00eaff;
-    }
-
-    .cyber-title {
-        color: #00eaff;
-        text-shadow: 0 0 10px #00eaff;
-        font-weight: bold;
-        letter-spacing: 2px;
-    }
-</style>
-
-<div class="container d-flex justify-content-center align-items-center" style="height: 80vh;">
-
-    <div class="col-md-4">
-        <div class="login-card">
-            <h2 class="text-center cyber-title mb-4">
-                🔐 HackersvellA Login
-            </h2>
-
-            <form method="POST">
-                {% csrf_token %}
-
-                <div class="mb-3">
-                    <label class="form-label">Username</label>
-                    <input type="text" class="form-control" name="username" required />
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Password</label>
-                    <input type="password" class="form-control" name="password" required />
-                </div>
-
-                <button type="submit" class="btn btn-cyber w-100 mt-3">Login</button>
-            </form>
-
-            <p class="text-center mt-3">
-                <a href="#" class="text-info">Forgot Password?</a>
-            </p>
+        <div class="mb-3">
+          <label class="form-label">Username</label>
+          <input type="text" class="form-control" name="username" required />
         </div>
+
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" required />
+        </div>
+
+        <button type="submit" class="btn btn-login w-100 mt-2">Sign In</button>
+      </form>
+
+      <p class="text-center mt-3">
+        <a href="#" class="login-link">Forgot Password?</a>
+      </p>
     </div>
-
-</div>
-
+  </div>
 {% endblock %}
