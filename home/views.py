@@ -1,17 +1,28 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-
+from django.contrib.auth import authenticate, login as auth_login
+from django.contrib import messages
 
 def homepage(request):
     return render(request, 'index.html')
 
 
 def login(request):
-
     if request.method == 'POST':
-        print("HELLLO")
-    else:
-        return render(request, 'login.html')
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(username=username, password=password)
+
+        if user is not None:
+            auth_login(request, user)
+            messages.success(request, f"Hello, {username}, Welcome to HackersvellA.")
+            return redirect('homepage')
+        else:
+            messages.error(request, "Username and password did not match.")
+            return render(request, 'login.html')
+    
+    return render(request, 'login.html')
 
 
 def register(request):
@@ -22,12 +33,15 @@ def register(request):
         fname = request.POST.get('first_name')
         lname = request.POST.get('last_name')
 
-        user = User(username=username,
-                    email=email,
-                    password=passwd,
-                    first_name=fname,
-                    last_name=lname)
-        user.save()
+        User.objects.create_user(
+            username=username,
+            email=email,
+            password=passwd,
+            first_name=fname,
+            last_name=lname
+        )
+
+        messages.success(request, "Account created successfully. Please log in.")
         return redirect('login')
-    else:
-        return render(request, 'register.html')
+
+    return render(request, 'register.html')
