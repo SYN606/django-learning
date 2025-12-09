@@ -2,9 +2,13 @@
   <div class="container-fluid">
     <a class="navbar-brand" href="{% url 'homepage' %}">HackersvellA</a>
 
-    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"><span class="navbar-toggler-icon"></span></button>
+    <button class="navbar-toggler text-white" type="button" 
+            data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" href="{% url 'homepage' %}">Home</a>
@@ -19,7 +23,13 @@
         </li>
       </ul>
 
-      <button class="btn btn-outline-success" type="submit"><a href="{% url 'login' %}">Login</a></button>
+      {% if user.is_authenticated %}
+        <span class="navbar-text me-3 text-white">Hello, {{ user.username }}!</span>
+        <a class="btn btn-outline-success" href="{% url 'logout' %}">Logout</a>
+      {% else %}
+        <a class="btn btn-outline-success" href="{% url 'login' %}">Login</a>
+      {% endif %}
+
     </div>
   </div>
 </nav>
