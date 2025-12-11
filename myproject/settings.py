@@ -3,7 +3,7 @@ import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-print(BASE_DIR)
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-+cfk)2dzd%bf=1dyr&qnm4*0c57&7(hgghv%@#tg-rj&0xde46'
 
