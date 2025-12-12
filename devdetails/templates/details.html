@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <h3>Welcome to Detailed page</h3>
+
+  <h4>Hello from {{ student.name }}</h4>
+
+  <p>
+    <strong>ID:</strong> {{ student.id_number }}
+  </p>
+  <p>
+    <strong>Role:</strong> {{ student.role }}
+  </p>
+  <p>
+    <strong>About:</strong> <br />
+    {{ student.about }}
+  </p>
+{% endblock %}
