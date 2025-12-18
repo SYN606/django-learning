@@ -1,63 +1,62 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/register.css' %}">{% endblock css %}
+  <link rel="stylesheet" href="{% static 'css/register.css' %}" />
+{% endblock %}
 
 {% block content %}
-
-<div class="register-wrapper">
+  <div class="register-wrapper">
     <div class="register-container">
-        <h1 class="register-title">Create Account</h1>
+      <h1 class="register-title">Create Account</h1>
 
-        <form action="{% url 'home:register' %}" method="POST" class="register-form">
-            {% csrf_token %}
+      <form action="{% url 'home:register' %}" method="POST" class="register-form">
+        {% csrf_token %}
 
-            <!-- username -->
-            <div class="form-group">
-                <label for="username">User Name</label>
-                <input type="text" id="username" name="username" placeholder="Enter your username" required />
-            </div>
+        <!-- Username -->
+        <div class="form-group">
+          <label for="username">User Name</label>
+          <input type="text" id="username" name="username" placeholder="Enter your username" required />
+        </div>
 
-            <!-- First Name -->
-            <div class="form-group">
-                <label for="first_name">First Name</label>
-                <input type="text" id="first_name" name="first_name" placeholder="Enter your first name" required />
-            </div>
+        <!-- First Name -->
+        <div class="form-group">
+          <label for="first_name">First Name</label>
+          <input type="text" id="first_name" name="first_name" placeholder="Enter your first name" required />
+        </div>
 
-            <!-- Last Name -->
-            <div class="form-group">
-                <label for="last_name">Last Name</label>
-                <input type="text" id="last_name" name="last_name" placeholder="Enter your last name" required />
-            </div>
+        <!-- Last Name -->
+        <div class="form-group">
+          <label for="last_name">Last Name</label>
+          <input type="text" id="last_name" name="last_name" placeholder="Enter your last name" required />
+        </div>
 
+        <!-- Phone -->
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="9876543210" required />
+        </div>
 
-            <!-- Email -->
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email address" required />
-            </div>
+        <!-- Email -->
+        <div class="form-group full-width">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email address" required />
+        </div>
 
-            <!-- Password -->
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" required />
-            </div>
+        <!-- Password -->
+        <div class="form-group full-width">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required />
+        </div>
 
-            <!-- Phone -->
-            <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" placeholder="e.g. 9876543210" pattern="[0-9]{10}" required />
-            </div>
+        <!-- Submit -->
+        <button type="submit" class="register-btn full-width">Register</button>
+      </form>
 
-            <button type="submit" class="register-btn">Register</button>
-        </form>
-
-        <p class="login-text">
-            Already have an account?
-            <a href="{% url 'home:login' %}">Login</a>
-        </p>
+      <p class="login-text">
+        Already have an account?
+        <a href="{% url 'home:login' %}">Login</a>
+      </p>
     </div>
-</div>
-
-{% endblock content %}
+  </div>
+{% endblock %}
