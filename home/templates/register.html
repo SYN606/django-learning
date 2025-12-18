@@ -10,7 +10,7 @@
     <div class="register-container">
         <h1 class="register-title">Create Account</h1>
 
-        <form action="{% url 'register' %}" method="POST" class="register-form">
+        <form action="{% url 'home:register' %}" method="POST" class="register-form">
             {% csrf_token %}
 
             <!-- username -->
@@ -55,7 +55,7 @@
 
         <p class="login-text">
             Already have an account?
-            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'home:login' %}">Login</a>
         </p>
     </div>
 </div>

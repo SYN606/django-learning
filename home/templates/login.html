@@ -21,7 +21,7 @@
     <div class="login-card">
       <h2 class="login-title">Login</h2>
 
-      <form method="POST" action="{% url 'login' %}">
+      <form method="POST" action="{% url 'home:login' %}">
         {% csrf_token %}
 
         <div class="mb-3">
@@ -38,7 +38,7 @@
       </form>
 
       <p class="text-center mt-3">
-        <a href="{% url 'register' %}" class="login-link">Create New Account</a>
+        <a href="{% url 'home:register' %}" class="login-link">Create New Account</a>
       </p>
     </div>
   </div>
