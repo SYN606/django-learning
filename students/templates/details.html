@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <h3 class="mb-3">Student Details</h3>
+
+  <h4>Hello from {{ student.name }}</h4>
+
+  <div class="student-details">
+    {% if student.profile_image %}
+      <img src="{{ student.profile_image.url }}" alt="{{ student.name }}" class="student-avatar" />
+    {% endif %}
+
+    <p>
+      <strong>ID:</strong> {{ student.id_number }}
+    </p>
+
+    <p>
+      <strong>Role:</strong> {{ student.get_role_display }}
+    </p>
+
+    {% if student.about %}
+      <p>
+        <strong>About:</strong><br />
+        {{ student.about|linebreaks }}
+      </p>
+    {% else %}
+      <p>
+        <em>No description available.</em>
+      </p>
+    {% endif %}
+  </div>
+{% endblock %}
