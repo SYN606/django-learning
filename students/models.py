@@ -27,7 +27,7 @@ class Student(models.Model):
     about = models.TextField(blank=True)
 
     # Image field
-    profile_image = models.ImageField(upload_to="students/profile_images/",
+    profile_image = models.ImageField(upload_to="media/profile_images/",
                                       blank=True,
                                       null=True)
 

@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/details.css' %}" />
+{% endblock %}
+
 {% block content %}
   <h3 class="mb-3">Student Details</h3>
 

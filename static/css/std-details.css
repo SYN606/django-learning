@@ -1,0 +1,118 @@
+/* Page title */
+h3 {
+    text-align: center;
+    margin-bottom: 24px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.4px;
+}
+
+/* Table wrapper */
+.custom-table {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background: #0f0f0f;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #1f1f1f;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Table header */
+.custom-table thead {
+    background: linear-gradient(135deg, #161616, #111);
+}
+
+.custom-table th {
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    color: #ff004c;
+    border-bottom: 1px solid #242424;
+}
+
+/* Table body rows */
+.custom-table tbody tr {
+    transition: background 0.25s ease, transform 0.15s ease;
+}
+
+.custom-table tbody tr:nth-child(even) {
+    background: #121212;
+}
+
+.custom-table tbody tr:hover {
+    background: #181818;
+}
+
+/* Table cells */
+.custom-table td {
+    padding: 14px 16px;
+    font-size: 0.95rem;
+    color: #e0e0e0;
+    border-bottom: 1px solid #1f1f1f;
+}
+
+/* Last row border fix */
+.custom-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Student name link */
+.custom-table td a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+}
+
+/* Link underline animation */
+.custom-table td a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background: #ff004c;
+    transition: width 0.25s ease;
+}
+
+.custom-table td a:hover {
+    color: #ff004c;
+}
+
+.custom-table td a:hover::after {
+    width: 100%;
+}
+
+/* Role column */
+.custom-table td:last-child {
+    color: #00ffe0;
+    font-weight: 500;
+}
+
+/* Empty state */
+.custom-table tbody tr td[colspan] {
+    padding: 22px;
+    color: #888;
+    font-style: italic;
+    background: #0d0d0d;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .custom-table {
+        font-size: 0.9rem;
+    }
+
+    .custom-table th,
+    .custom-table td {
+        padding: 12px;
+    }
+}

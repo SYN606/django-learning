@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block css %}
-  <link rel="stylesheet" href="{% static 'css/dev_details.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/std-details.css' %}" />
 {% endblock %}
 
 {% block content %}
@@ -22,7 +22,7 @@
         <tr>
           <td>{{ student.id_number }}</td>
           <td>
-            <a href="{% url 'device_details:std_details' student.id %}">{{ student.name }}</a>
+            <a href="{% url 'students:std_details' student.id %}">{{ student.name }}</a>
           </td>
           <td>{{ student.get_role_display }}</td>
         </tr>
