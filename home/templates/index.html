@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Zoro Blog | Home{% endblock %}
+
+{% block body_content %}
+
+<!-- HERO SECTION -->
+<section class="py-20 text-center">
+    <h1 class="text-5xl md:text-6xl font-extrabold leading-tight">
+        Welcome to
+        <span class="text-[#a4b9ff]">Zoro</span>
+        <span class="text-[#ffc2e2]">Blog</span>
+    </h1>
+
+    <p class="mt-6 text-lg text-neutral-400 max-w-2xl mx-auto">
+        A space where technology, cybersecurity, development and deep technical insights
+        meet clarity and simplicity.
+    </p>
+
+    <div class="mt-8 flex justify-center gap-4">
+        <a href="#" class="px-6 py-3 rounded-xl bg-[#a4b9ff] text-black font-semibold hover:bg-[#8fa8ff] transition">
+            Explore Blogs
+        </a>
+
+        <a href="#"
+            class="px-6 py-3 rounded-xl border border-neutral-700 text-neutral-200 hover:border-[#ffc2e2] hover:text-[#ffc2e2] transition">
+            About Zoro
+        </a>
+    </div>
+</section>
+
+
+<!-- FEATURED POSTS -->
+<section class="py-16">
+    <h2 class="text-3xl font-bold mb-10 text-center">
+        Featured Articles
+    </h2>
+
+    <div class="grid md:grid-cols-3 gap-8">
+
+        <div class="bg-neutral-900 border border-neutral-800 rounded-2xl p-6 hover:border-[#a4b9ff] transition">
+            <h3 class="text-xl font-semibold mb-3">Building Secure Django Apps</h3>
+            <p class="text-neutral-400 text-sm mb-5">
+                A deep dive into securing authentication, permissions,
+                middleware and production deployment.
+            </p>
+            <a href="#" class="text-[#a4b9ff] hover:underline text-sm">
+                Read More →
+            </a>
+        </div>
+
+        <div class="bg-neutral-900 border border-neutral-800 rounded-2xl p-6 hover:border-[#a4b9ff] transition">
+            <h3 class="text-xl font-semibold mb-3">Modern Tailwind Workflow</h3>
+            <p class="text-neutral-400 text-sm mb-5">
+                How to integrate Tailwind CSS properly in Django
+                with optimized production builds.
+            </p>
+            <a href="#" class="text-[#a4b9ff] hover:underline text-sm">
+                Read More →
+            </a>
+        </div>
+
+        <div class="bg-neutral-900 border border-neutral-800 rounded-2xl p-6 hover:border-[#a4b9ff] transition">
+            <h3 class="text-xl font-semibold mb-3">Cybersecurity Fundamentals</h3>
+            <p class="text-neutral-400 text-sm mb-5">
+                Recon, enumeration, exploitation — understanding the
+                mindset behind offensive security.
+            </p>
+            <a href="#" class="text-[#a4b9ff] hover:underline text-sm">
+                Read More →
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- CATEGORIES SECTION -->
+<section class="py-16 bg-neutral-900/40 rounded-3xl px-8">
+    <h2 class="text-3xl font-bold text-center mb-12">
+        Explore Topics
+    </h2>
+
+    <div class="grid md:grid-cols-4 gap-6 text-center">
+
+        <div class="p-6 rounded-xl border border-neutral-800 hover:border-[#ffc2e2] transition">
+            <h3 class="font-semibold text-lg text-[#ffc2e2]">Django</h3>
+            <p class="text-sm text-neutral-400 mt-2">
+                Backend architecture & best practices
+            </p>
+        </div>
+
+        <div class="p-6 rounded-xl border border-neutral-800 hover:border-[#a4b9ff] transition">
+            <h3 class="font-semibold text-lg text-[#a4b9ff]">Cybersecurity</h3>
+            <p class="text-sm text-neutral-400 mt-2">
+                Offensive & defensive security
+            </p>
+        </div>
+
+        <div class="p-6 rounded-xl border border-neutral-800 hover:border-green-300 transition">
+            <h3 class="font-semibold text-lg text-green-300">DevOps</h3>
+            <p class="text-sm text-neutral-400 mt-2">
+                CI/CD & deployment workflows
+            </p>
+        </div>
+
+        <div class="p-6 rounded-xl border border-neutral-800 hover:border-yellow-300 transition">
+            <h3 class="font-semibold text-lg text-yellow-300">Linux</h3>
+            <p class="text-sm text-neutral-400 mt-2">
+                Server management & automation
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ABOUT SECTION -->
+<section class="py-20 text-center">
+    <h2 class="text-3xl font-bold mb-6">
+        Why Zoro Blog?
+    </h2>
+
+    <p class="max-w-3xl mx-auto text-neutral-400 leading-relaxed">
+        Zoro Blog is built for developers, hackers, and builders who value clarity,
+        minimalism, and depth. Every article is written to provide actionable
+        insights rather than surface-level explanations.
+    </p>
+</section>
+
+
+<!-- CTA SECTION -->
+<section class="py-16 text-center">
+    <div class="bg-gradient-to-r from-[#a4b9ff]/20 to-[#ffc2e2]/20 border border-neutral-800 rounded-3xl p-12">
+        <h2 class="text-3xl font-bold mb-4">
+            Ready to Dive Deeper?
+        </h2>
+        <p class="text-neutral-400 mb-8">
+            Explore the latest articles and level up your technical skills.
+        </p>
+
+        <a href="#" class="px-8 py-4 rounded-xl bg-[#ffc2e2] text-black font-semibold hover:bg-[#ffadd8] transition">
+            Start Reading
+        </a>
+    </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="py-10 text-center border-t border-neutral-800 mt-20 text-neutral-500 text-sm">
+    © Zoro Blog — Built with Django & Tailwind
+</footer>
+
+{% endblock %}

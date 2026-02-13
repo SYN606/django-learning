@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+{% block title %}About | Zoro Blog{% endblock %}
+
+{% block body_content %}
+
+<section class="py-24 text-center">
+    <h1 class="text-4xl md:text-6xl font-extrabold mb-8 leading-tight">
+        About 
+        <span class="text-[#a4b9ff]">Zoro</span>
+        <span class="text-[#ffc2e2]">Blog</span>
+    </h1>
+
+    <p class="max-w-3xl mx-auto text-neutral-400 leading-relaxed text-lg">
+        Zoro Blog is a developer-focused platform built for engineers,
+        hackers, and builders who value clarity, depth, and precision.
+        It exists to document real learning — not surface-level tutorials.
+    </p>
+</section>
+
+
+<!-- VISION & MISSION -->
+<section class="py-16">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+
+        <!-- Vision -->
+        <div class="bg-neutral-900 border border-neutral-800 p-8 rounded-3xl hover:border-[#a4b9ff] transition">
+            <h2 class="text-2xl font-bold text-[#a4b9ff] mb-4">
+                Our Vision
+            </h2>
+            <p class="text-neutral-400 leading-relaxed">
+                To build a technically strong, minimalist knowledge hub
+                where backend development, cybersecurity, and systems
+                engineering are explained with clarity and real-world
+                context.
+            </p>
+        </div>
+
+        <!-- Mission -->
+        <div class="bg-neutral-900 border border-neutral-800 p-8 rounded-3xl hover:border-[#ffc2e2] transition">
+            <h2 class="text-2xl font-bold text-[#ffc2e2] mb-4">
+                Our Mission
+            </h2>
+            <p class="text-neutral-400 leading-relaxed">
+                Deliver high-quality, structured content that prioritizes
+                understanding over trends. Every article aims to teach
+                implementation, not just theory.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- PHILOSOPHY -->
+<section class="py-20 text-center">
+    <h2 class="text-3xl font-bold mb-8">
+        Our Philosophy
+    </h2>
+
+    <p class="max-w-4xl mx-auto text-neutral-400 leading-relaxed text-lg">
+        The internet is full of noise. Zoro Blog focuses on signal.
+        We believe in writing fewer but stronger articles — breaking down
+        concepts clearly, showing real configurations, and sharing
+        production-grade approaches rather than shortcuts.
+    </p>
+</section>
+
+
+<!-- CORE AREAS -->
+<section class="py-16 bg-neutral-900/40 rounded-3xl px-10">
+    <h2 class="text-3xl font-bold text-center mb-12">
+        Core Areas of Focus
+    </h2>
+
+    <div class="grid md:grid-cols-4 gap-8 text-center">
+
+        <div class="space-y-3">
+            <h3 class="font-semibold text-lg text-[#a4b9ff]">Django</h3>
+            <p class="text-sm text-neutral-400">
+                Clean architecture, auth systems, scalable backend design.
+            </p>
+        </div>
+
+        <div class="space-y-3">
+            <h3 class="font-semibold text-lg text-[#ffc2e2]">Cybersecurity</h3>
+            <p class="text-sm text-neutral-400">
+                Offensive mindset, defensive systems, secure coding.
+            </p>
+        </div>
+
+        <div class="space-y-3">
+            <h3 class="font-semibold text-lg text-green-300">DevOps</h3>
+            <p class="text-sm text-neutral-400">
+                Deployment pipelines, containers, production workflows.
+            </p>
+        </div>
+
+        <div class="space-y-3">
+            <h3 class="font-semibold text-lg text-yellow-300">Linux</h3>
+            <p class="text-sm text-neutral-400">
+                Server management, automation, performance tuning.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- CLOSING CTA -->
+<section class="py-24 text-center">
+    <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold mb-6">
+            Build. Secure. Scale.
+        </h2>
+        <p class="text-neutral-400 mb-10">
+            Zoro Blog is not just about reading —
+            it's about applying, experimenting, and mastering.
+        </p>
+
+        <a href="#"
+           class="px-8 py-4 rounded-xl bg-gradient-to-r from-[#a4b9ff] to-[#ffc2e2]
+                  text-black font-semibold hover:scale-[1.02]
+                  transition-all duration-300">
+            Explore Articles
+        </a>
+    </div>
+</section>
+
+{% endblock %}

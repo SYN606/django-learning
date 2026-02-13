@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block title %}Login | Zoro Blog{% endblock %}
+
+{% block layout %}
+<section class="min-h-[85vh] flex items-center justify-center relative overflow-hidden">
+
+    <!-- Subtle Gradient Background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0d0d0d] via-[#111827] to-[#0d0d0d]"></div>
+
+    <!-- Glow Accent -->
+    <div class="absolute w-[400px] h-[400px] bg-[#a4b9ff]/20 blur-3xl rounded-full top-[-100px] left-[-100px]"></div>
+    <div class="absolute w-[400px] h-[400px] bg-[#ffc2e2]/20 blur-3xl rounded-full bottom-[-100px] right-[-100px]"></div>
+
+    <!-- Glass Card -->
+    <div class="relative w-full max-w-md p-10 rounded-3xl 
+                backdrop-blur-xl bg-white/5 
+                border border-white/10 
+                shadow-2xl">
+
+        <!-- Title -->
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold tracking-wide">
+                <span class="text-[#a4b9ff]">Zoro</span>
+                <span class="text-[#ffc2e2]">Blog</span>
+            </h2>
+            <p class="text-neutral-400 mt-2 text-sm">
+                Login to your account
+            </p>
+        </div>
+
+        <!-- Form -->
+        <form method="POST" class="space-y-8">
+            {% csrf_token %}
+
+            <!-- Email -->
+            <div class="relative">
+                <input type="email" name="email" required placeholder=" "
+                       class="peer w-full px-4 pt-6 pb-2 rounded-xl 
+                              bg-white/5 border border-white/10
+                              focus:outline-none focus:border-[#a4b9ff] 
+                              focus:ring-1 focus:ring-[#a4b9ff] 
+                              text-white transition">
+                <label class="absolute left-4 top-2 text-sm text-neutral-400 
+                              transition-all duration-200 
+                              peer-placeholder-shown:top-4 
+                              peer-placeholder-shown:text-base 
+                              peer-placeholder-shown:text-neutral-500 
+                              peer-focus:top-2 
+                              peer-focus:text-sm 
+                              peer-focus:text-[#a4b9ff]">
+                    Email
+                </label>
+            </div>
+
+            <!-- Password -->
+            <div class="relative">
+                <input type="password" name="password" required placeholder=" "
+                       class="peer w-full px-4 pt-6 pb-2 rounded-xl 
+                              bg-white/5 border border-white/10
+                              focus:outline-none focus:border-[#ffc2e2] 
+                              focus:ring-1 focus:ring-[#ffc2e2] 
+                              text-white transition">
+                <label class="absolute left-4 top-2 text-sm text-neutral-400 
+                              transition-all duration-200 
+                              peer-placeholder-shown:top-4 
+                              peer-placeholder-shown:text-base 
+                              peer-placeholder-shown:text-neutral-500 
+                              peer-focus:top-2 
+                              peer-focus:text-sm 
+                              peer-focus:text-[#ffc2e2]">
+                    Password
+                </label>
+            </div>
+
+            {% if request.GET.next %}
+            <input type="hidden" name="next" value="{{ request.GET.next }}">
+            {% endif %}
+
+            <!-- Button -->
+            <button type="submit"
+                    class="w-full py-3 rounded-xl font-semibold text-black
+                           bg-gradient-to-r from-[#a4b9ff] to-[#ffc2e2]
+                           hover:scale-[1.02] hover:shadow-lg
+                           transition-all duration-300">
+                Login
+            </button>
+        </form>
+
+        <!-- Register Link -->
+        <div class="text-center mt-8 text-sm text-neutral-400">
+            Don’t have an account?
+            <a href="{% url 'home:register' %}" 
+               class="text-[#ffc2e2] hover:underline ml-1">
+                Create one
+            </a>
+        </div>
+
+    </div>
+
+</section>
+{% endblock %}

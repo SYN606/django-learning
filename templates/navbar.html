@@ -1,0 +1,107 @@
+<nav class="bg-[#0d0d0d] border-b border-neutral-800">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="flex items-center justify-between h-16">
+
+            <!-- Logo -->
+            <a href="{% url 'home:homepage' %}" class="text-2xl font-bold tracking-wide">
+                <span class="text-[#a4b9ff]">SYN</span><span class="text-[#ffc2e2]">606</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8">
+
+                <a href="{% url 'home:homepage' %}" class="text-neutral-300 hover:text-[#a4b9ff] transition">
+                    Home
+                </a>
+
+                <!-- Blog URL Blank -->
+                <a href="#" class="text-neutral-300 hover:text-[#a4b9ff] transition">
+                    Blogs
+                </a>
+
+                <a href="{% url 'home:about' %}" class="text-neutral-300 hover:text-[#a4b9ff] transition">
+                    About
+                </a>
+
+                {% if user.is_authenticated %}
+
+                <span class="text-neutral-400 text-sm">
+                    Welcome,
+                    <span class="text-[#ffc2e2] font-semibold">
+                        {{ user.email|cut:"@gmail.com" }}
+                    </span>
+                </span>
+
+                <a href="{% url 'home:logout' %}"
+                    class="px-4 py-2 rounded-lg bg-red-300 text-black font-medium hover:bg-red-400 transition">
+                    Logout
+                </a>
+
+                {% else %}
+
+                <a href="{% url 'home:login' %}"
+                    class="px-4 py-2 rounded-lg bg-green-300 text-black font-medium hover:bg-green-400 transition">
+                    Login
+                </a>
+
+                {% endif %}
+            </div>
+
+            <!-- Mobile Button -->
+            <button id="menu-btn" class="md:hidden text-neutral-200 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden px-6 pb-4 space-y-4 bg-[#0d0d0d] border-t border-neutral-800">
+
+        <a href="{% url 'home:homepage' %}" class="block text-neutral-300 hover:text-[#a4b9ff] transition">
+            Home
+        </a>
+
+        <a href="#" class="block text-neutral-300 hover:text-[#a4b9ff] transition">
+            Blogs
+        </a>
+
+        <a href="#" class="block text-neutral-300 hover:text-[#a4b9ff] transition">
+            About
+        </a>
+
+        {% if user.is_authenticated %}
+
+        <div class="text-neutral-400 text-center text-sm">
+            Welcome,
+            <span class="text-[#ffc2e2] font-semibold">
+                {{ user.email|cut:"@gmail.com" }}
+            </span>
+        </div>
+
+        <a href="{% url 'home:logout' %}"
+            class="block px-4 py-2 rounded-lg bg-red-300 text-black font-medium text-center">
+            Logout
+        </a>
+
+        {% else %}
+
+        <a href="{% url 'home:login' %}"
+            class="block px-4 py-2 rounded-lg bg-green-300 text-black font-medium text-center">
+            Login
+        </a>
+
+        {% endif %}
+    </div>
+</nav>
+
+<script>
+    const btn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    btn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+    });
+</script>
