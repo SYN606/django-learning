@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+{% block title %}Blogs | Zoro Blog{% endblock %}
+
+{% block body_content %}
+
+<section class="py-12">
+
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-10 gap-6">
+
+        <div>
+            <h1 class="text-4xl font-bold">
+                <span class="text-primary">Zoro</span> Blogs
+            </h1>
+            <p class="text-neutral-400 mt-2 text-sm">
+                Insights on Django, Cybersecurity, DevOps & Linux.
+            </p>
+        </div>
+
+        <!-- View Toggle -->
+        <div class="flex items-center gap-3">
+            <button id="cardViewBtn"
+                class="px-4 py-2 rounded-lg bg-primary text-black text-sm font-semibold">
+                Card
+            </button>
+            <button id="listViewBtn"
+                class="px-4 py-2 rounded-lg border border-neutral-700 text-sm">
+                List
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Blog Container -->
+    <div id="blogContainer" class="grid md:grid-cols-3 gap-8">
+
+        {% for blog in blogs %}
+        <div class="blog-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden hover:border-primary transition">
+
+            <!-- Thumbnail -->
+            {% if blog.thumbnail %}
+                <img src="{{ blog.thumbnail.url }}"
+                     class="w-full h-40 object-cover">
+            {% else %}
+                <div class="w-full h-40 bg-neutral-800 flex items-center justify-center text-neutral-500 text-sm">
+                    No Thumbnail
+                </div>
+            {% endif %}
+
+            <div class="p-6">
+
+                <!-- Category -->
+                {% if blog.category %}
+                <a href="{% url 'blogs:category' blog.category.slug %}"
+                   class="text-xs px-3 py-1 bg-primary/20 text-primary rounded-full">
+                    {{ blog.category.name }}
+                </a>
+                {% endif %}
+
+                <!-- Title -->
+                <h2 class="text-lg font-semibold mt-4 mb-2">
+                    {{ blog.title }}
+                </h2>
+
+                <!-- Meta -->
+                <p class="text-neutral-400 text-xs mb-3">
+                    By {{ blog.author.email }} •
+                    {{ blog.created_at|date:"M d, Y" }}
+                </p>
+
+                <!-- Preview -->
+                <p class="text-neutral-400 text-sm mb-4 line-clamp-3">
+                    {{ blog.content|truncatewords:20 }}
+                </p>
+
+                <!-- Read More -->
+                <a href="{% url 'blogs:detail' blog.slug %}"
+                   class="text-accent text-sm hover:underline">
+                    Read More →
+                </a>
+
+            </div>
+        </div>
+        {% empty %}
+            <p class="text-neutral-500">No blogs available.</p>
+        {% endfor %}
+
+    </div>
+
+</section>
+
+<!-- Pagination -->
+{% if page_obj.has_other_pages %}
+<div class="flex justify-center mt-14">
+
+    <div class="flex items-center gap-2">
+
+        <!-- Previous -->
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}"
+           class="px-4 py-2 border border-neutral-700 rounded-lg text-sm hover:bg-neutral-800 transition">
+            Previous
+        </a>
+        {% endif %}
+
+        <!-- Page Numbers -->
+        {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+                <span class="px-4 py-2 bg-primary text-black rounded-lg text-sm font-semibold">
+                    {{ num }}
+                </span>
+            {% else %}
+                <a href="?page={{ num }}"
+                   class="px-4 py-2 border border-neutral-700 rounded-lg text-sm hover:bg-neutral-800 transition">
+                    {{ num }}
+                </a>
+            {% endif %}
+        {% endfor %}
+
+        <!-- Next -->
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}"
+           class="px-4 py-2 border border-neutral-700 rounded-lg text-sm hover:bg-neutral-800 transition">
+            Next
+        </a>
+        {% endif %}
+
+    </div>
+
+</div>
+{% endif %}
+
+<!-- Toggle Script -->
+<script>
+    const cardBtn = document.getElementById("cardViewBtn");
+    const listBtn = document.getElementById("listViewBtn");
+    const container = document.getElementById("blogContainer");
+
+    cardBtn.addEventListener("click", () => {
+        container.classList.remove("space-y-6");
+        container.classList.add("grid", "md:grid-cols-3", "gap-8");
+
+        document.querySelectorAll(".blog-item").forEach(item => {
+            item.classList.remove("flex", "gap-6", "items-center");
+        });
+
+        cardBtn.classList.add("bg-primary", "text-black");
+        listBtn.classList.remove("bg-primary", "text-black");
+    });
+
+    listBtn.addEventListener("click", () => {
+        container.classList.remove("grid", "md:grid-cols-3", "gap-8");
+        container.classList.add("space-y-6");
+
+        document.querySelectorAll(".blog-item").forEach(item => {
+            item.classList.add("flex", "gap-6", "items-center");
+        });
+
+        cardBtn.classList.remove("bg-primary", "text-black");
+        listBtn.classList.add("bg-primary", "text-black");
+    });
+</script>
+
+{% endblock %}

@@ -1,5 +1,7 @@
 from pathlib import Path
 import os
+from .jazzmin import *
+from .ck5 import *
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -13,13 +15,16 @@ DEBUG = False
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
+    "jazzmin",
+    "django_ckeditor_5",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "home", "blogs"
+    "home",
+    "blogs",
 ]
 
 AUTH_USER_MODEL = "home.User"
@@ -33,7 +38,6 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
-
 
 ROOT_URLCONF = "zoroblog.urls"
 
@@ -82,7 +86,6 @@ TIME_ZONE = "Asia/Kolkata"
 USE_I18N = True
 USE_TZ = True
 
-
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_DIRS = [BASE_DIR / "static"]
@@ -94,9 +97,7 @@ LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 LOGIN_URL = "/login/"
 
-
 SESSION_COOKIE_HTTPONLY = True
 CSRF_COOKIE_HTTPONLY = True
-
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
