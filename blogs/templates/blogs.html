@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+{% block title %}Blogs | Zoro Blog{% endblock %}
+
+{% block body_content %}
+
+<section class="py-12">
+
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-10 gap-6">
+
+        <div>
+            <h1 class="text-4xl font-bold">
+                <span class="text-[#a4b9ff]">Zoro</span> Blogs
+            </h1>
+            <p class="text-neutral-400 mt-2 text-sm">
+                Insights on Django, Cybersecurity, DevOps & Linux.
+            </p>
+        </div>
+
+        <!-- View Toggle -->
+        <div class="flex items-center gap-3">
+            <button id="cardViewBtn"
+                class="px-4 py-2 rounded-lg bg-[#a4b9ff] text-black text-sm font-semibold">
+                Card
+            </button>
+            <button id="listViewBtn"
+                class="px-4 py-2 rounded-lg border border-neutral-700 text-sm">
+                List
+            </button>
+        </div>
+
+    </div>
+
+
+    <!-- Blog Container -->
+    <div id="blogContainer" class="grid md:grid-cols-3 gap-8">
+
+        <!-- Blog Card -->
+        <div class="blog-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden hover:border-[#a4b9ff] transition">
+
+            <img src="https://via.placeholder.com/600x300"
+                class="w-full h-40 object-cover">
+
+            <div class="p-6">
+
+                <!-- Category -->
+                <span class="text-xs px-3 py-1 bg-[#a4b9ff]/20 text-[#a4b9ff] rounded-full">
+                    Django
+                </span>
+
+                <h2 class="text-lg font-semibold mt-4 mb-3">
+                    Building Secure Authentication Systems
+                </h2>
+
+                <p class="text-neutral-400 text-sm mb-4">
+                    Implementing robust authentication systems in Django with
+                    custom user models and production best practices.
+                </p>
+
+                <a href="#"
+                   class="text-[#ffc2e2] text-sm hover:underline">
+                    Read More →
+                </a>
+
+            </div>
+        </div>
+
+
+        <!-- Blog Card -->
+        <div class="blog-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden hover:border-[#a4b9ff] transition">
+
+            <img src="https://via.placeholder.com/600x300"
+                class="w-full h-40 object-cover">
+
+            <div class="p-6">
+
+                <span class="text-xs px-3 py-1 bg-green-300/20 text-green-300 rounded-full">
+                    DevOps
+                </span>
+
+                <h2 class="text-lg font-semibold mt-4 mb-3">
+                    Production Deployment with Docker
+                </h2>
+
+                <p class="text-neutral-400 text-sm mb-4">
+                    Containerizing Django apps and deploying securely using
+                    modern CI/CD workflows.
+                </p>
+
+                <a href="#"
+                   class="text-[#ffc2e2] text-sm hover:underline">
+                    Read More →
+                </a>
+
+            </div>
+        </div>
+
+
+        <!-- Blog Card -->
+        <div class="blog-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden hover:border-[#a4b9ff] transition">
+
+            <img src="https://via.placeholder.com/600x300"
+                class="w-full h-40 object-cover">
+
+            <div class="p-6">
+
+                <span class="text-xs px-3 py-1 bg-yellow-300/20 text-yellow-300 rounded-full">
+                    Linux
+                </span>
+
+                <h2 class="text-lg font-semibold mt-4 mb-3">
+                    Linux Hardening Basics
+                </h2>
+
+                <p class="text-neutral-400 text-sm mb-4">
+                    Secure your servers with firewall rules, SSH hardening,
+                    and process auditing.
+                </p>
+
+                <a href="#"
+                   class="text-[#ffc2e2] text-sm hover:underline">
+                    Read More →
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Toggle Script -->
+<script>
+    const cardBtn = document.getElementById("cardViewBtn");
+    const listBtn = document.getElementById("listViewBtn");
+    const container = document.getElementById("blogContainer");
+
+    cardBtn.addEventListener("click", () => {
+        container.classList.remove("space-y-6");
+        container.classList.add("grid", "md:grid-cols-3", "gap-8");
+
+        cardBtn.classList.add("bg-[#a4b9ff]", "text-black");
+        listBtn.classList.remove("bg-[#a4b9ff]", "text-black");
+    });
+
+    listBtn.addEventListener("click", () => {
+        container.classList.remove("grid", "md:grid-cols-3", "gap-8");
+        container.classList.add("space-y-6");
+
+        cardBtn.classList.remove("bg-[#a4b9ff]", "text-black");
+        listBtn.classList.add("bg-[#a4b9ff]", "text-black");
+
+        document.querySelectorAll(".blog-item").forEach(item => {
+            item.classList.add("flex", "gap-6", "items-center");
+        });
+    });
+</script>
+
+{% endblock %}
