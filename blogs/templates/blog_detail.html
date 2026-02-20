@@ -27,9 +27,10 @@
     </div>
     {% endif %}
 
-    <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed break-words">
-        {{ blog.content|linebreaks }}
+    <div class="blog-content text-neutral-300 leading-relaxed break-words space-y-6">
+        {{ blog.content|safe }}
     </div>
+
 
 </section>
 
